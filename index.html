@@ -81,6 +81,11 @@ html, body {
 /* 홈화면은 슬라이드 없이 페이드 */
 #home {
   transform: none !important;
+  overflow-y: auto !important;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  /* iOS 모멘텀 스크롤 */
+  overscroll-behavior: contain;
 }
 #home.active {
   transform: none !important;
@@ -94,12 +99,6 @@ html, body {
   display: flex;
   flex-direction: column;
   background: var(--washi);
-}
-
-/* 홈은 스크롤 가능 */
-#home {
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
 }
 
 /* 전환 애니메이션 - 홈에서 서브로 */
@@ -168,7 +167,7 @@ html, body {
 }
 #sakura-canvas{position:absolute;inset:0;pointer-events:none;z-index:4;}
 
-.home-inner{position:relative;z-index:5;display:flex;flex-direction:column;flex:1;padding-bottom:36px;}
+.home-inner{position:relative;z-index:5;display:flex;flex-direction:column;flex:1;padding-bottom:60px;min-height:min-content;}
 .home-hero{padding:60px 28px 30px;text-align:center;}
 .home-eyebrow{
   display:inline-flex;align-items:center;gap:7px;
@@ -984,9 +983,9 @@ html, body {
 
           <div class="tl-row"><div class="tl-l"><div class="tl-dot"></div><div class="tl-t">도착후</div><div class="tl-vl"></div></div><div class="tl-r"><div class="tl-place">간사이 국제공항</div><div class="tl-main"><strong>입국수속 및 짐 수령</strong></div><div class="tl-sub">각 편 도착 후 입국수속 → 1층 도착 로비에서 전체 합류</div></div></div>
           <div class="tl-row"><div class="tl-l"><div class="tl-dot"></div><div class="tl-t">오전</div><div class="tl-vl"></div></div><div class="tl-r"><div class="tl-place">간사이 → 고베</div><div class="tl-main">전용차량으로 <strong>고베 이동</strong></div><div class="tl-sub">약 1시간 소요</div></div></div>
-          <div class="tl-row"><div class="tl-l"><div class="tl-dot"></div><div class="tl-t">중식</div><div class="tl-vl"></div></div><div class="tl-r"><div class="tl-place">고베</div><div class="tl-main">🍣 <strong>스시정식</strong></div></div></div>
+          <div class="tl-row"><div class="tl-l"><div class="tl-dot"></div><div class="tl-t">중식</div><div class="tl-vl"></div></div><div class="tl-r"><div class="tl-place">고베</div><div class="tl-main">🍣 <strong>스시정식</strong></div><div class="tl-sub"><a class="tl-spot-link" href="https://maps.google.com/maps?q=34.4952142,135.4256989&z=17" target="_blank" rel="noopener">🏮 간코 이즈미오츠점 <span class="tl-map-tag">📍지도</span></a> · 스시세트 + 우동</div></div></div>
           <div class="tl-row"><div class="tl-l"><div class="tl-dot"></div><div class="tl-t">오후</div><div class="tl-vl"></div></div><div class="tl-r"><div class="tl-place">고베 관광</div><div class="tl-main">🌊 <a class="tl-spot-link" href="https://maps.google.com/maps?q=34.6822937,135.1886448&z=17" target="_blank" rel="noopener"><strong>하버랜드 · 메리켄 파크</strong> <span class="tl-map-tag">📍지도</span></a> 항구 전경 감상</div><div class="tl-sub">🛍 <a class="tl-spot-link" href="https://maps.google.com/maps?q=34.6799788,135.1846182&z=17" target="_blank" rel="noopener"><strong>모자이크 거리</strong> <span class="tl-map-tag">📍지도</span></a> 쇼핑 & 산책</div></div></div>
-          <div class="tl-row"><div class="tl-l"><div class="tl-dot"></div><div class="tl-t">저녁</div></div><div class="tl-r"><div class="tl-place">오사카</div><div class="tl-main">🏯 <a class="tl-spot-link" href="https://maps.google.com/maps?q=34.6872571,135.5258546&z=17" target="_blank" rel="noopener"><strong>오사카성</strong> <span class="tl-map-tag">📍지도</span></a> 관광 · 일본 3대 명성</div><div class="tl-sub">🍱 석식(화정식) · 고베→오사카 약 40분 · 호텔 투숙</div></div></div>
+          <div class="tl-row"><div class="tl-l"><div class="tl-dot"></div><div class="tl-t">저녁</div></div><div class="tl-r"><div class="tl-place">오사카</div><div class="tl-main">🏯 <a class="tl-spot-link" href="https://maps.google.com/maps?q=34.6872571,135.5258546&z=17" target="_blank" rel="noopener"><strong>오사카성</strong> <span class="tl-map-tag">📍지도</span></a> 관광 · 일본 3대 명성</div><div class="tl-sub">🍱 <a class="tl-spot-link" href="https://maps.google.com/maps?q=34.4128295,135.3393692&z=17" target="_blank" rel="noopener">🏮 고치소무라 이즈미사노점 <span class="tl-map-tag">📍지도</span></a> · 화정식 · 고베→오사카 약 40분 · 호텔 투숙</div></div></div>
         </div>
         <div class="h-strip">🏨 <span>도르셋 바이 아고라 오사카 호텔</span></div>
         <div class="meals"><div class="mc"><div class="mc-l">조식</div><div class="mc-v">불포함</div></div><div class="mc"><div class="mc-l">중식</div><div class="mc-v">스시정식</div></div><div class="mc"><div class="mc-l">석식</div><div class="mc-v">화정식</div></div></div>
@@ -1002,10 +1001,10 @@ html, body {
         <div class="tl">
           <div class="tl-row"><div class="tl-l"><div class="tl-dot"></div><div class="tl-t">오전</div><div class="tl-vl"></div></div><div class="tl-r"><div class="tl-place">오사카→교토</div><div class="tl-main">호텔 조식 후 <strong>교토 이동</strong></div><div class="tl-sub">약 1시간 10분 소요</div></div></div>
           <div class="tl-row"><div class="tl-l"><div class="tl-dot"></div><div class="tl-t">오전</div><div class="tl-vl"></div></div><div class="tl-r"><div class="tl-place">교토 관광</div><div class="tl-main">⛩ <a class="tl-spot-link" href="https://maps.google.com/maps?q=34.9946662,135.784661&z=17" target="_blank" rel="noopener"><strong>청수사</strong> <span class="tl-map-tag">📍지도</span></a> — 유네스코 세계문화유산</div><div class="tl-sub">🛍 <a class="tl-spot-link" href="https://maps.google.com/maps?q=34.9981744,135.7808578&z=17" target="_blank" rel="noopener"><strong>니넨자카·산넨자카</strong> <span class="tl-map-tag">📍지도</span></a> 전통 거리 산책</div></div></div>
-          <div class="tl-row"><div class="tl-l"><div class="tl-dot"></div><div class="tl-t">중식</div><div class="tl-vl"></div></div><div class="tl-r"><div class="tl-place">교토</div><div class="tl-main">🍲 <strong>유두부</strong> 정식</div></div></div>
+          <div class="tl-row"><div class="tl-l"><div class="tl-dot"></div><div class="tl-t">중식</div><div class="tl-vl"></div></div><div class="tl-r"><div class="tl-place">교토</div><div class="tl-main">🍲 <strong>유두부 정식</strong></div><div class="tl-sub"><a class="tl-spot-link" href="https://maps.google.com/maps?q=35.0141494,135.6787229&z=17" target="_blank" rel="noopener">🏮 레스토랑 아라시야마 <span class="tl-map-tag">📍지도</span></a> · 일정식 유도후 정식</div></div></div>
           <div class="tl-row"><div class="tl-l"><div class="tl-dot"></div><div class="tl-t">오후</div><div class="tl-vl"></div></div><div class="tl-r"><div class="tl-place">아라시야마</div><div class="tl-main">🚃 <strong>란덴열차</strong> 탑승 체험</div><div class="tl-sub">시조오오미야역 → 아리시야마역 소도시 감상</div></div></div>
           <div class="tl-row"><div class="tl-l"><div class="tl-dot"></div><div class="tl-t">오후</div><div class="tl-vl"></div></div><div class="tl-r"><div class="tl-place">아라시야마 관광</div><div class="tl-main">🌉 <a class="tl-spot-link" href="https://maps.google.com/maps?q=35.0128769,135.6777748&z=17" target="_blank" rel="noopener"><strong>도게츠교</strong> <span class="tl-map-tag">📍지도</span></a> · 달이 건너는 목조 다리</div><div class="tl-sub">🎋 <a class="tl-spot-link" href="https://maps.google.com/maps?q=35.0168187,135.6713013&z=17" target="_blank" rel="noopener"><strong>치쿠린</strong> <span class="tl-map-tag">📍지도</span></a> 대나무 숲 산책</div></div></div>
-          <div class="tl-row"><div class="tl-l"><div class="tl-dot"></div><div class="tl-t">저녁</div></div><div class="tl-r"><div class="tl-place">오사카 도톤보리</div><div class="tl-main">🎡 <a class="tl-spot-link" href="https://maps.google.com/maps?q=34.6687234,135.5012971&z=17" target="_blank" rel="noopener"><strong>신사이바시·도톤보리</strong> <span class="tl-map-tag">📍지도</span></a> 야경 & 쇼핑</div><div class="tl-sub">🥩 석식 <strong>샤브샤브(무제한)</strong> · 이동 약 1시간 20분</div></div></div>
+          <div class="tl-row"><div class="tl-l"><div class="tl-dot"></div><div class="tl-t">저녁</div></div><div class="tl-r"><div class="tl-place">오사카 도톤보리</div><div class="tl-main">🎡 <a class="tl-spot-link" href="https://maps.google.com/maps?q=34.6687234,135.5012971&z=17" target="_blank" rel="noopener"><strong>신사이바시·도톤보리</strong> <span class="tl-map-tag">📍지도</span></a> 야경 & 쇼핑</div><div class="tl-sub">🥩 석식 <strong>샤브샤브(무제한)</strong><br><a class="tl-spot-link" href="https://maps.google.com/maps?q=34.6727777,135.5019982&z=17" target="_blank" rel="noopener">🏮 사쿠라테이 신사이바시점 <span class="tl-map-tag">📍지도</span></a> · 이동 약 1시간 20분</div></div></div>
         </div>
         <div class="h-strip">🏨 <span>도르셋 바이 아고라 오사카 호텔</span></div>
         <div class="meals"><div class="mc"><div class="mc-l">조식</div><div class="mc-v">호텔식</div></div><div class="mc"><div class="mc-l">중식</div><div class="mc-v">유두부</div></div><div class="mc"><div class="mc-l">석식</div><div class="mc-v">샤브샤브(무제한)</div></div></div>
@@ -1600,25 +1599,16 @@ function closePopup() {
 }
 
 function checkPopup() {
-  // 새로 접속할 때마다 표시
-  // sessionStorage = 탭 내 유지 (뒤로가기 시 재표시 방지)
-  // 단, 앱 최초 진입(페이지 로드)에만 띄움
-  if (!sessionStorage.getItem('popup_shown')) {
-    sessionStorage.setItem('popup_shown', '1');
-    setTimeout(() => {
-      document.getElementById('popup-overlay').style.display = 'flex';
-    }, 1200);
-  }
-
-  /* 실제 운영 시 아래 코드로 교체
   const now   = new Date();
   const year  = now.getFullYear();
   const month = now.getMonth() + 1;
   const date  = now.getDate();
   const hour  = now.getHours();
-  const min   = now.getMinutes();
+
+  // 표시 조건: 2025년 4월 11일 10:00 ~ 12:00
   const inDate = (year === 2025 && month === 4 && date === 11);
-  const inTime = (hour === 10 && min >= 30) || (hour === 11 && min < 30);
+  const inTime = (hour >= 10 && hour < 12);
+
   if (inDate && inTime) {
     if (!sessionStorage.getItem('popup_shown')) {
       sessionStorage.setItem('popup_shown', '1');
@@ -1627,7 +1617,6 @@ function checkPopup() {
       }, 1200);
     }
   }
-  */
 }
 checkPopup();
 
