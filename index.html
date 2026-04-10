@@ -1510,7 +1510,7 @@ html, body {
     <div class="popup-body" style="padding-top:28px;">
       <button class="popup-close" onclick="closePopup()" style="position:absolute;top:12px;right:14px;background:rgba(30,26,23,.08);border:none;color:var(--sumi-soft);width:28px;height:28px;border-radius:50%;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;">✕</button>
       <div class="popup-letter">
-<span class="popup-greeting">2025년 4월 11일</span>안녕하세요, 매니저님들 😊
+안녕하세요, 매니저님들 😊
 
 늘 최선을 다해 고객을 위해
 헌신해 주시는 매니저님들께
@@ -1522,10 +1522,10 @@ html, body {
 
 함께하지 못해 아쉽지만,
 멀리서나마 즐겁고 행복한 여행이
-되길 진심으로 응원합니다. 🌸
+되길 진심으로 응원합니다.
 
 여러분이 있기에 특화마케팅팀이
-빛날 수 있습니다. 고맙습니다. 🌸<span class="popup-sign">삼성화재 특화마케팅팀장<br>박 무 룡 상무</span>
+빛날 수 있습니다. 고맙습니다.<span class="popup-sign">삼성화재 특화마케팅팀장<br>박 무 룡 상무</span>
       </div>
     </div>
     <div class="popup-footer">
@@ -1606,17 +1606,14 @@ function checkPopup() {
   const hour  = now.getHours();
   const min   = now.getMinutes();
 
-  // 표시 조건: 2025년 4월 11일 ~ 11:59 (한국시간)
-  const inDate = (year === 2025 && month === 4 && date === 11);
-  const inTime = (hour < 11) || (hour === 11 && min <= 59);
+  // 표시 조건: 2026년 4월 10일 ~ 4월 11일 11:59 (한국시간)
+  const after10  = (year === 2026 && month === 4 && date === 10);
+  const before12 = (year === 2026 && month === 4 && date === 11 && (hour < 11 || (hour === 11 && min <= 59)));
 
-  if (inDate && inTime) {
-    if (!sessionStorage.getItem('popup_shown')) {
-      sessionStorage.setItem('popup_shown', '1');
-      setTimeout(() => {
-        document.getElementById('popup-overlay').style.display = 'flex';
-      }, 1200);
-    }
+  if (after10 || before12) {
+    setTimeout(() => {
+      document.getElementById('popup-overlay').style.display = 'flex';
+    }, 1200);
   }
 }
 checkPopup();
