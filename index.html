@@ -167,8 +167,8 @@ html, body {
 }
 #sakura-canvas{position:absolute;inset:0;pointer-events:none;z-index:4;}
 
-.home-inner{position:relative;z-index:5;display:flex;flex-direction:column;flex:1;padding-bottom:60px;min-height:min-content;}
-.home-hero{padding:60px 28px 30px;text-align:center;}
+.home-inner{position:relative;z-index:5;display:flex;flex-direction:column;flex:1;padding-bottom:clamp(40px,8vh,80px);min-height:min-content;}
+.home-hero{padding:clamp(30px, 5vh, 60px) 28px clamp(16px, 3vh, 30px);text-align:center;}
 .home-eyebrow{
   display:inline-flex;align-items:center;gap:7px;
   border:1px solid rgba(232,160,176,.4);background:rgba(232,160,176,.09);
@@ -178,7 +178,7 @@ html, body {
 .home-eyebrow::before,.home-eyebrow::after{content:'🌸';font-size:11px;}
 .home-title{
   font-family:'Shippori Mincho B1',serif;
-  font-size:clamp(32px,9vw,58px);font-weight:700;
+  font-size:clamp(28px,6vw,48px);font-weight:700;
   color:#fff;letter-spacing:3px;line-height:1.15;margin-bottom:6px;
 }
 .home-title span{color:var(--sakura);}
@@ -192,9 +192,9 @@ html, body {
 }
 
 /* Menu */
-.home-menu{padding:28px 20px 0;display:flex;flex-direction:column;gap:11px;max-width:500px;margin:0 auto;width:100%;}
+.home-menu{padding:clamp(14px,3vh,28px) 20px clamp(20px,4vh,40px);display:flex;flex-direction:column;gap:clamp(8px,1.5vh,11px);max-width:500px;margin:0 auto;width:100%;}
 .menu-card{
-  display:flex;align-items:center;gap:15px;padding:17px 19px;
+  display:flex;align-items:center;gap:15px;padding:clamp(12px,2vh,17px) 19px;
   border-radius:var(--r);cursor:pointer;
   border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(8px);
   transition:transform .22s ease,box-shadow .22s;
@@ -1604,10 +1604,11 @@ function checkPopup() {
   const month = now.getMonth() + 1;
   const date  = now.getDate();
   const hour  = now.getHours();
+  const min   = now.getMinutes();
 
-  // 표시 조건: 2025년 4월 11일 10:00 ~ 12:00
+  // 표시 조건: 2025년 4월 11일 ~ 11:59 (한국시간)
   const inDate = (year === 2025 && month === 4 && date === 11);
-  const inTime = (hour >= 10 && hour < 12);
+  const inTime = (hour < 11) || (hour === 11 && min <= 59);
 
   if (inDate && inTime) {
     if (!sessionStorage.getItem('popup_shown')) {
